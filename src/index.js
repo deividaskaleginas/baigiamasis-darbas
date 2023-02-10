@@ -3,15 +3,18 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
+import { ForumQuestionsProvider } from "./context/forumQuestionsContext";
 import { ForumUserProvider } from "./context/forumUserContext";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ForumUserProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ForumQuestionsProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ForumQuestionsProvider>
   </ForumUserProvider>
 );
 

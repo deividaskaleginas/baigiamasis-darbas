@@ -1,0 +1,261 @@
+{
+  "users": [
+    {
+      "id": "ldk7lufc",
+      "status": "user",
+      "username": "Testas",
+      "avatar": "",
+      "password": "Testas1@",
+      "confirmPassword": "Testas1@",
+      "votes": [
+        {
+          "id": "ldu7k233",
+          "vote": {
+            "isLiked": true,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldu7k233",
+          "vote": {
+            "isLiked": true,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldu7l0h1",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldvwrfhn",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldu7o2yl",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy7sidq",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy83yme",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy86g3e",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy8egwz",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy8foym",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy8nbgo",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy8ruk9",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy8vnbt",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy8ygix",
+          "vote": {
+            "isLiked": true,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldycwtav",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy7l0gu",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldyh2hbc",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "ldtyiicr",
+      "username": "Vartotojas",
+      "password": "Vartotojas1@",
+      "confirmPassword": "Vartotojas1@",
+      "votes": [
+        {
+          "id": "ldvwrfhn",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": true
+          }
+        },
+        {
+          "id": "ldu7k233",
+          "vote": {
+            "isLiked": true,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldu7o2yl",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldu7l0h1",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldvf9lts",
+          "vote": {
+            "isLiked": true,
+            "isDisliked": false
+          }
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "ldu7k233",
+      "date": "07/02/2023, 14:18:14",
+      "title": "Which of sci-fis favourite technologies would you like to see become a reality?",
+      "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue magna justo, volutpat, non amet massa viverra euismod id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue magna justo, volutpat, non amet massa viverra euismod id.",
+      "authorID": "autoriausID",
+      "votes": 0,
+      "viewed": 0
+    },
+    {
+      "id": "ldy7l0gu",
+      "date": "10/02/2023, 09:30:04",
+      "title": "Bandymui",
+      "question": "Paziuresim ar pavyks",
+      "viewed": 0,
+      "votes": 0,
+      "comments": []
+    },
+    {
+      "id": "ldy8ygix",
+      "date": "10/02/2023, 10:08:31",
+      "title": "Editinta",
+      "question": "Editinta su data",
+      "authorID": "ldk7lufc",
+      "viewed": 0,
+      "votes": 0,
+      "comments": [],
+      "edited": "10/02/2023, 12:01:11"
+    },
+    {
+      "id": "ldycwtav",
+      "date": "10/02/2023, 11:59:12",
+      "title": "Ziurim",
+      "question": "ArBus",
+      "viewed": 0,
+      "votes": 0,
+      "edited": ""
+    },
+    {
+      "id": "ldyg3yws",
+      "date": "10/02/2023, 13:28:45",
+      "title": "Title",
+      "question": "Text area",
+      "authorID": "ldk7lufc",
+      "viewed": 0,
+      "votes": 0,
+      "edited": ""
+    },
+    {
+      "id": "ldyh0iro",
+      "date": "10/02/2023, 13:54:04",
+      "title": "asdasd",
+      "question": "sadasddasdasdasdasd",
+      "viewed": 0,
+      "votes": 0,
+      "edited": ""
+    },
+    {
+      "id": "ldyh2hbc",
+      "date": "10/02/2023, 13:55:35",
+      "title": "Aasdasdsa",
+      "question": "ASDADASDASDASDADADasd",
+      "authorID": "ldk7lufc",
+      "viewed": 0,
+      "votes": 0,
+      "edited": ""
+    }
+  ],
+  "comments": [
+    {
+      "questionID": "ldu7k233",
+      "id": "ldy8w1jo",
+      "date": "10/02/2023, 10:06:38",
+      "userID": "ldk7lufc",
+      "comment": "Sitas Pasilikti"
+    },
+    {
+      "questionID": "ldy8ygix",
+      "id": "ldy8ym3q",
+      "date": "10/02/2023, 10:08:38",
+      "userID": "ldk7lufc",
+      "comment": "Komentaras dar"
+    }
+  ]
+}
