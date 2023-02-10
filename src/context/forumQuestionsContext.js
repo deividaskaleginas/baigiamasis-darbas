@@ -18,7 +18,7 @@ const ForumQuestionsProvider = ({ children }) => {
 
   useEffect(() => {
     setStatuses({ getQuestionsStatus: "loading" });
-    fetch("http://localhost:3000/questions")
+    fetch("http://localhost:3001/questions")
       .then((res) => res.json())
       .then((data) => {
         setQuestion(data);
@@ -31,7 +31,7 @@ const ForumQuestionsProvider = ({ children }) => {
 
   return (
     <ForumQuestionsContext.Provider
-      value={(questions, setQuestion, comments, setComments)}
+      value={{ questions, setQuestion, comments, setComments }}
     >
       {children}
     </ForumQuestionsContext.Provider>

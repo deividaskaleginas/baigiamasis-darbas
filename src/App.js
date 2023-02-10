@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 
 import { theme } from "./styles/theme";
 import GlobalStyles from "./styles/global";
-import { Home, Login, Register } from "./pages";
+import { Home, Login, Register, AddQuestion } from "./pages";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/add" element={<AddQuestion />} />
       </Routes>
     </ThemeProvider>
   );

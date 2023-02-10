@@ -13,8 +13,6 @@ const ForumUserProvider = ({ children }) => {
     getUserStatus: "",
   });
 
-  console.log(users);
-
   useEffect(() => {
     setStatuses({ getUserStatus: "loading", getQuestionsStatus: "loading" });
     fetch("http://localhost:3001/users")
