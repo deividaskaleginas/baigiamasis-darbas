@@ -14,118 +14,6 @@
             "isLiked": true,
             "isDisliked": false
           }
-        },
-        {
-          "id": "ldu7k233",
-          "vote": {
-            "isLiked": true,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldu7l0h1",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldvwrfhn",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldu7o2yl",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy7sidq",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy83yme",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy86g3e",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy8egwz",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy8foym",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy8nbgo",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy8ruk9",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy8vnbt",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy8ygix",
-          "vote": {
-            "isLiked": true,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldycwtav",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy7l0gu",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldyh2hbc",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
         }
       ]
     },
@@ -141,36 +29,15 @@
             "isLiked": false,
             "isDisliked": true
           }
-        },
-        {
-          "id": "ldu7k233",
-          "vote": {
-            "isLiked": true,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldu7o2yl",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldu7l0h1",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldvf9lts",
-          "vote": {
-            "isLiked": true,
-            "isDisliked": false
-          }
         }
       ]
+    },
+    {
+      "id": "ldyudbjy",
+      "username": "Naujas",
+      "password": "Naujas1@",
+      "confirmPassword": "Naujas1@",
+      "favorites": []
     }
   ],
   "questions": [

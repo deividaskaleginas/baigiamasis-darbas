@@ -13,9 +13,11 @@ const ForumUserProvider = ({ children }) => {
     getUserStatus: "",
   });
 
+  console.log(users);
+
   useEffect(() => {
     setStatuses({ getUserStatus: "loading", getQuestionsStatus: "loading" });
-    fetch("http://localhost:3000/users")
+    fetch("http://localhost:3001/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -28,14 +30,14 @@ const ForumUserProvider = ({ children }) => {
 
   return (
     <ForumUserContext.Provider
-      value={
-        (users,
+      value={{
+        users,
         setUsers,
         loggedUserData,
         setLoggedUserData,
         isLoggedIn,
-        setIsLoggedIn)
-      }
+        setIsLoggedIn,
+      }}
     >
       {children}
     </ForumUserContext.Provider>

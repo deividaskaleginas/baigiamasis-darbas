@@ -1,5 +1,10 @@
 import { useContext, useState } from "react";
+import ForumUserContext from "../../context/forumUserContext";
+import uniqid from "uniqid";
+import { person, lockPassword } from "../../assets/svg";
 import { NavLink, useNavigate } from "react-router-dom";
+import { theme } from "../../styles/theme";
+import styled from "styled-components";
 import {
   FormInput,
   LargeTextRegular,
@@ -7,29 +12,20 @@ import {
   SignTitleTextBold,
   SmallTextRegulat,
   SquareButton,
-  WarningTextBold,
 } from "../../components";
-import ForumUserContext from "../../context/forumUserContext";
 
 import signLogo from "../../assets/images/signLogo.png";
 import signImage from "../../assets/images/signImage.png";
-import { theme } from "../../styles/theme";
-import styled from "styled-components";
-import { person, lockPassword } from "../../assets/svg";
 
-export const Login = () => {
-  const { setIsLoggedIn, users, setLoggedUserData } =
+export const Register = () => {
+  const { setIsLoggedIn, users, setLoggedUserData, setUsers } =
     useContext(ForumUserContext);
 
-  console.log(users);
-
-  const [failedLogIn, setFailedLogIn] = useState(false);
-
-  const navigate = useNavigate();
-
+  const [exist, setExist] = useState(false);
   const [values, setValues] = useState({
     username: "",
     password: "",
+    confirmPassword: "",
   });
 
   const inputs = [
@@ -38,40 +34,78 @@ export const Login = () => {
       name: "username",
       type: "text",
       placeholder: "Username",
+      errorMessage:
+        "Username should be 3-16 characters and shouldn't include any special character",
+      pattern: "^[a-zA-Z0-9]{3,16}$",
       icon: person,
+      required: true,
     },
+
     {
       id: 2,
       name: "password",
-      type: "password",
+      type: "text",
       placeholder: "Password",
+      errorMessage:
+        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character",
+      pattern:
+        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$",
       icon: lockPassword,
+      required: true,
+    },
+    {
+      id: 3,
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "Confirm Password",
+      errorMessage: "Passwords don't match!",
+      pattern: values.password,
+      icon: lockPassword,
+      required: true,
     },
   ];
+
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const checkUser = () => {
-    const loggedInUser = users.find(
-      (user) =>
-        user.username === values.username && user.password === values.password
+  const checkIfUserExist = () => {
+    const checkedUserList = users.filter(
+      (user) => user.username === values.username
     );
+    checkedUserList.length > 0 ? setExist(true) : createUser();
+    console.log(checkedUserList);
+  };
 
-    if (loggedInUser) {
-      localStorage.setItem("userId", String(loggedInUser.id));
-      setLoggedUserData({ ...loggedInUser });
-      setIsLoggedIn(true);
-      navigate("/");
-    } else {
-      setFailedLogIn(true);
-    }
+  const createUser = () => {
+    const userData = {
+      id: uniqid(),
+      username: values.username,
+      password: values.password,
+      confirmPassword: values.confirmPassword,
+      favorites: [],
+    };
+
+    setLoggedUserData(userData);
+    setUsers([...users, userData]);
+
+    fetch("http://localhost:3001/users/", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+    localStorage.setItem("userId", String(userData.id));
+    setIsLoggedIn(true);
+    navigate("/");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    checkUser();
+    checkIfUserExist();
   };
   return (
     <LoginSection>
@@ -84,7 +118,7 @@ export const Login = () => {
         </LogoBlock>
         <TextBlock>
           <SignTitleTextBold>Enter Credentials</SignTitleTextBold>
-          <LargeTextRegular>Please sign in to continue</LargeTextRegular>
+          <LargeTextRegular>Please sign up to continue</LargeTextRegular>
         </TextBlock>
         <form onSubmit={handleSubmit}>
           {inputs.map((input) => {
@@ -100,25 +134,21 @@ export const Login = () => {
               </InputBlock>
             );
           })}
-          {failedLogIn && (
-            <WarningBlock>
-              <WarningTextBold>Wrong username our password</WarningTextBold>
-            </WarningBlock>
-          )}
+
           <ButtonBlock>
-            <SquareButton>Login</SquareButton>
+            <SquareButton>Register</SquareButton>
           </ButtonBlock>
         </form>
 
         <RegisterTextBlock>
           <SmallTextRegulat>
-            Don't have an account? <NavLink to="/register">Sign up</NavLink>
+            Already a member? <NavLink to="/login">Sign In</NavLink>
           </SmallTextRegulat>
         </RegisterTextBlock>
       </LoginDataBlock>
       <LoginImageBlock>
         <SignUpButtonBlock>
-          <RoundButton type="button">Sign Up</RoundButton>
+          <RoundButton type="button">Sign In</RoundButton>
         </SignUpButtonBlock>
         <SignInLogoBlock>
           <img src={signImage} alt="" />
@@ -131,7 +161,6 @@ export const Login = () => {
 const LoginSection = styled.section`
   display: grid;
   align-items: center;
-
   height: 100vh;
   max-width: 75rem;
   margin: 0 auto;
@@ -143,21 +172,21 @@ const LoginSection = styled.section`
 
 const LoginDataBlock = styled.div`
   display: flex;
-  gap: 1.5625rem;
   flex-direction: column;
-  max-width: 23.75rem;
+  gap: 1.5625rem;
+  max-width: 25rem;
   margin: 0 auto;
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 2.25rem;
+    gap: 3.25rem;
   }
 `;
 
 const LogoBlock = styled.div`
   img {
-    max-width: 21.25rem;
+    max-width: 21.875rem;
     object-fit: cover;
   }
 `;
@@ -187,7 +216,7 @@ const RegisterTextBlock = styled.div`
 
   a {
     text-decoration: none;
-    color: ${() => theme.colors.primaryDarkBluish};
+    color: ${() => theme.colors.primaryLightBlue};
   }
 `;
 
@@ -198,7 +227,7 @@ const WarningBlock = styled.div`
 const LoginImageBlock = styled.div`
   display: none;
   flex-direction: column;
-  gap: 5.375rem;
+  gap: 9.375rem;
 
   @media ${theme.device.laptop} {
     display: flex;
