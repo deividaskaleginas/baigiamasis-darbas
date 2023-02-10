@@ -134,7 +134,13 @@ export const Register = () => {
               </InputBlock>
             );
           })}
-
+          {exist && (
+            <WarningBlock>
+              <SmallTextRegulat>
+                User with this username already exists
+              </SmallTextRegulat>
+            </WarningBlock>
+          )}
           <ButtonBlock>
             <SquareButton>Register</SquareButton>
           </ButtonBlock>
