@@ -4,13 +4,16 @@ const ForumQuestionsContext = createContext();
 
 const ForumQuestionsProvider = ({ children }) => {
   const [questions, setQuestion] = useState([]);
-  const [comments, setComments] = useState({
-    questionID: "",
-    id: "",
-    date: "",
-    userID: "",
-    comment: "",
-  });
+  const [comments, setComments] = useState([
+    {
+      questionID: "",
+      id: "",
+      date: "",
+      userID: "",
+      comment: "",
+    },
+  ]);
+  console.log(comments);
 
   const [statuses, setStatuses] = useState({
     getQuestionsStatus: "",
@@ -27,11 +30,25 @@ const ForumQuestionsProvider = ({ children }) => {
       .catch((error) => {
         setStatuses({ ...statuses, getQuestionsStatus: "error" });
       });
+    fetch("http://localhost:3001/comments")
+      .then((res) => res.json())
+      .then((data) => setComments(data));
   }, []);
+
+  const handleViewed = (id) => {
+    const viewUpdatedquestionsList = questions.map((question) => {
+      if (question.id === id) {
+        return { ...question, viewed: question.viewed + 1 };
+      } else {
+        return question;
+      }
+    });
+    setQuestion(viewUpdatedquestionsList);
+  };
 
   return (
     <ForumQuestionsContext.Provider
-      value={{ questions, setQuestion, comments, setComments }}
+      value={{ questions, setQuestion, comments, setComments, handleViewed }}
     >
       {children}
     </ForumQuestionsContext.Provider>
