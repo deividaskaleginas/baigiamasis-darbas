@@ -14,6 +14,34 @@
             "isLiked": true,
             "isDisliked": false
           }
+        },
+        {
+          "id": "ldy8ygix",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy7l0gu",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldyh2hbc",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldyg3yws",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
         }
       ]
     },
@@ -60,31 +88,10 @@
       "comments": []
     },
     {
-      "id": "ldy8ygix",
-      "date": "10/02/2023, 10:08:31",
-      "title": "Editinta",
-      "question": "Editinta su data",
-      "authorID": "ldk7lufc",
-      "viewed": 0,
-      "votes": 0,
-      "comments": [],
-      "edited": "10/02/2023, 12:01:11"
-    },
-    {
       "id": "ldycwtav",
       "date": "10/02/2023, 11:59:12",
       "title": "Ziurim",
       "question": "ArBus",
-      "viewed": 0,
-      "votes": 0,
-      "edited": ""
-    },
-    {
-      "id": "ldyg3yws",
-      "date": "10/02/2023, 13:28:45",
-      "title": "Title",
-      "question": "Text area",
-      "authorID": "ldk7lufc",
       "viewed": 0,
       "votes": 0,
       "edited": ""
@@ -125,13 +132,6 @@
       "date": "10/02/2023, 10:06:38",
       "userID": "ldk7lufc",
       "comment": "Sitas Pasilikti"
-    },
-    {
-      "questionID": "ldy8ygix",
-      "id": "ldy8ym3q",
-      "date": "10/02/2023, 10:08:38",
-      "userID": "ldk7lufc",
-      "comment": "Komentaras dar"
     }
   ]
 }

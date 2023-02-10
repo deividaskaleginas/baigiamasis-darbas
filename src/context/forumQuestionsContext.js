@@ -13,7 +13,6 @@ const ForumQuestionsProvider = ({ children }) => {
       comment: "",
     },
   ]);
-  console.log(comments);
 
   const [statuses, setStatuses] = useState({
     getQuestionsStatus: "",
@@ -46,9 +45,32 @@ const ForumQuestionsProvider = ({ children }) => {
     setQuestion(viewUpdatedquestionsList);
   };
 
+  const handleVoted = (id, plusMinus) => {
+    console.log(plusMinus);
+    const votedUpdatedQuestionList = questions.map((question) => {
+      if (question.id === id) {
+        if (plusMinus === "plus") {
+          return { ...question, votes: question.votes + 1 };
+        } else {
+          return { ...question, votes: question.votes - 1 };
+        }
+      } else {
+        return question;
+      }
+    });
+    setQuestion(votedUpdatedQuestionList);
+  };
+
   return (
     <ForumQuestionsContext.Provider
-      value={{ questions, setQuestion, comments, setComments, handleViewed }}
+      value={{
+        questions,
+        setQuestion,
+        comments,
+        setComments,
+        handleViewed,
+        handleVoted,
+      }}
     >
       {children}
     </ForumQuestionsContext.Provider>

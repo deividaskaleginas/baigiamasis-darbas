@@ -19,8 +19,7 @@ export const Question = ({ data, index }) => {
   const questionComments = comments?.filter(
     (comments) => comments.questionID === data.id
   );
-  console.log(comments);
-  console.log(questionComments);
+
   return (
     <QuestionBlock key={index}>
       <QuestionTop>
