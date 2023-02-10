@@ -25,7 +25,7 @@ export const RightNav = ({ open }) => {
   const { isLoggedIn } = useContext(ForumUserContext);
   return (
     <>
-      {isLoggedIn ? (
+      {!isLoggedIn ? (
         <GuestHeaderUnorderList open={open}>
           {NAV_LINKS.map(({ name, link }, index) => {
             return (

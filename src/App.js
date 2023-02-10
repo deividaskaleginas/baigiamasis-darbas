@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyles from "./styles/global";
 import { Home } from "./pages/home/Home";
+import { Login } from "./pages/login/Login";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </ThemeProvider>
   );
