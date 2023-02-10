@@ -1,9 +1,10 @@
-import { Header } from "../../components/header/Header";
+import { Header, Questions } from "../../components";
 
 export const Home = () => {
   return (
     <>
       <Header />
+      <Questions />
     </>
   );
 };
