@@ -6,6 +6,7 @@ import uniqid from "uniqid";
 import ForumQuestionsContext from "../../context/forumQuestionsContext";
 import ForumUserContext from "../../context/forumUserContext";
 import { FormInput } from "../formInput/FormInput";
+import { SmallTextRegulat } from "../typography/Typography";
 
 export const Comments = ({ questionID }) => {
   const { comments, setComments } = useContext(ForumQuestionsContext);
@@ -72,13 +73,14 @@ export const Comments = ({ questionID }) => {
     <>
       <h1>Comments:</h1>
       <CommentsBlock>
-        {allComments.map(({ date, comment, userID, id }) => {
+        {allComments.map(({ date, comment, userID, id, edited }) => {
           console.log(id);
           const { avatar, username } = users.find((user) => user.id === userID);
           return (
             <UserCommentBlock key={id}>
               <div>
                 <span>{date}</span>
+                {edited && <SmallTextRegulat>Edited {edited}</SmallTextRegulat>}
               </div>
               {isLoggedIn && loggedUserData.id === userID ? (
                 <div>
