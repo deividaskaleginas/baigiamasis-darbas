@@ -10,6 +10,7 @@ import {
   AddQuestion,
   OpenedQuestion,
   EdidQuestion,
+  EditComment,
 } from "./pages";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/add" element={<AddQuestion />} />
         <Route path="/question/:id" element={<OpenedQuestion />} />
         <Route path="/edit/:id" element={<EdidQuestion />} />
+        <Route path="/comment/:id" element={<EditComment />} />
       </Routes>
     </ThemeProvider>
   );

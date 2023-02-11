@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import uniqid from "uniqid";
 
@@ -80,7 +81,10 @@ export const Comments = ({ questionID }) => {
                 <span>{date}</span>
               </div>
               {isLoggedIn && loggedUserData.id === userID ? (
-                <button onClick={() => deleteComment(id)}>Delete</button>
+                <div>
+                  <button onClick={() => deleteComment(id)}>Delete</button>
+                  <Link to={`/comment/${id}`}>Edit</Link>
+                </div>
               ) : null}
               <CommentUserData>
                 <img src={avatar} alt="" />

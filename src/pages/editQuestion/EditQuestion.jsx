@@ -98,7 +98,7 @@ export const EdidQuestion = () => {
           onChange={handleUserInput}
         ></Textarea>
         <ButtonBlock>
-          <RoundButton>Add</RoundButton>
+          <RoundButton>Edit</RoundButton>
         </ButtonBlock>
       </form>
     </QuestionPostSection>

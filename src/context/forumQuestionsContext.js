@@ -79,6 +79,23 @@ const ForumQuestionsProvider = ({ children }) => {
     setQuestion([...newData]);
   };
 
+  const editComment = (editComment, id) => {
+    const editedComment = comments.find((comment) => comment.id === id);
+    const newData = comments.map((comment) =>
+      comment.id === id
+        ? {
+            questionID: editedComment.questionID,
+            id: editedComment.id,
+            date: editedComment.date,
+            userID: editedComment.userID,
+            comment: editComment.comment,
+            edited: new Date().toLocaleString(),
+          }
+        : comment
+    );
+    setComments([...newData]);
+  };
+
   return (
     <ForumQuestionsContext.Provider
       value={{
@@ -89,6 +106,7 @@ const ForumQuestionsProvider = ({ children }) => {
         handleViewed,
         handleVoted,
         editQuestion,
+        editComment,
       }}
     >
       {children}
