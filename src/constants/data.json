@@ -44,7 +44,28 @@
           }
         },
         {
+          "id": "ldycwtav",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldyh0iro",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
           "id": "le07ihye",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldyvpm0t",
           "vote": {
             "isLiked": false,
             "isDisliked": false
@@ -142,16 +163,6 @@
       "edited": ""
     },
     {
-      "id": "ldyh2hbc",
-      "date": "10/02/2023, 13:55:35",
-      "title": "Pakeistas",
-      "question": "Sitas taip pat pakeistas",
-      "authorID": "ldk7lufc",
-      "viewed": 0,
-      "votes": 0,
-      "edited": "11/02/2023, 09:12:38"
-    },
-    {
       "id": "ldyvpm0t",
       "date": "10/02/2023, 20:45:29",
       "title": "Ar veikia?",
@@ -170,11 +181,10 @@
       "edited": ""
     },
     {
-      "id": "le07ihye",
-      "date": "11/02/2023, 19:03:39",
-      "title": "Nauja tema",
-      "question": "Naujas tekstas",
-      "authorID": "ldk7lufc",
+      "id": "le090bzk",
+      "date": "11/02/2023, 19:45:30",
+      "title": "adasd",
+      "question": "asdad",
       "viewed": 0,
       "votes": 0,
       "edited": ""
@@ -182,41 +192,11 @@
   ],
   "comments": [
     {
-      "questionID": "ldu7k233",
-      "id": "ldz0mt6z",
-      "date": "10/02/2023, 23:03:16",
-      "userID": "ldk7lufc",
-      "comment": "Einu gultis, ryt dar bus diena oho!"
-    },
-    {
-      "questionID": "ldyh2hbc",
-      "id": "le00ojh4",
-      "date": "11/02/2023, 15:52:23",
-      "userID": "ldk7lufc",
-      "comment": "Komentaras/Pakeistas",
-      "edited": "11/02/2023, 16:23:21"
-    },
-    {
-      "questionID": "ldyh2hbc",
-      "id": "le0246tq",
-      "date": "11/02/2023, 16:32:33",
-      "userID": "ldk7lufc",
-      "comment": "Gerai, paziurim ar nera kokiu erroru / Ok, kaip ir nera",
-      "edited": "11/02/2023, 16:32:49"
-    },
-    {
       "questionID": "ldy7l0gu",
       "id": "le06rkk2",
       "date": "11/02/2023, 18:42:42",
       "userID": "le06puve",
       "comment": "Pavyks!"
-    },
-    {
-      "questionID": "le07ihye",
-      "id": "le07itnp",
-      "date": "11/02/2023, 19:03:54",
-      "userID": "ldk7lufc",
-      "comment": "Naujas komentaras"
     }
   ]
 }

@@ -22,7 +22,10 @@ export const Comments = ({ questionID }) => {
       name: "comment",
       type: "textarea",
       placeholder: "Comment",
+      errorMessage: "Comment should be 3-240 characters",
+      pattern: "^[a-zA-Z0-9]{3,16}$",
       label: "Comment",
+      required: true,
     },
   ];
 
@@ -58,6 +61,7 @@ export const Comments = ({ questionID }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createComment();
+    values.comment = "";
   };
 
   const deleteComment = (id) => {

@@ -17,7 +17,7 @@ import styled from "styled-components";
 
 export const AddQuestion = () => {
   const { questions, setQuestion } = useContext(ForumQuestionsContext);
-  const { loggedUserData } = useContext(ForumUserContext);
+  const { loggedUserData, isLoggedIn } = useContext(ForumUserContext);
 
   const [values, setValues] = useState({
     title: "",
@@ -64,37 +64,43 @@ export const AddQuestion = () => {
   };
   return (
     <QuestionPostSection>
-      <LogoBlock>
-        <img
-          src={signLogo}
-          alt="App logo with text: connect express yourself everyday"
-        />
-      </LogoBlock>
-      <TextBlock>
-        <SignTitleTextBold>Ask a Question</SignTitleTextBold>
-        <LargeTextRegular>Please sign up to continue</LargeTextRegular>
-      </TextBlock>
-      <form onSubmit={handleSubmit}>
-        {inputs.map((input) => {
-          return (
-            <FormInput
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
+      {isLoggedIn ? (
+        <>
+          <LogoBlock>
+            <img
+              src={signLogo}
+              alt="App logo with text: connect express yourself everyday"
             />
-          );
-        })}
-        <Textarea
-          name="question"
-          value={values.question}
-          maxLength="500"
-          onChange={onChange}
-        ></Textarea>
-        <ButtonBlock>
-          <RoundButton>Add</RoundButton>
-        </ButtonBlock>
-      </form>
+          </LogoBlock>
+          <TextBlock>
+            <SignTitleTextBold>Ask a Question</SignTitleTextBold>
+            <LargeTextRegular>Please sign up to continue</LargeTextRegular>
+          </TextBlock>
+          <form onSubmit={handleSubmit}>
+            {inputs.map((input) => {
+              return (
+                <FormInput
+                  key={input.id}
+                  {...input}
+                  value={values[input.name]}
+                  onChange={onChange}
+                />
+              );
+            })}
+            <Textarea
+              name="question"
+              value={values.question}
+              maxLength="500"
+              onChange={onChange}
+            ></Textarea>
+            <ButtonBlock>
+              <RoundButton>Add</RoundButton>
+            </ButtonBlock>
+          </form>
+        </>
+      ) : (
+        navigate("/login")
+      )}
     </QuestionPostSection>
   );
 };

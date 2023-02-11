@@ -2,14 +2,18 @@ import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import ForumQuestionsContext from "../../context/forumQuestionsContext";
+import ForumUserContext from "../../context/forumUserContext";
+
 import { theme } from "../../styles/theme";
 import { SquareButton } from "../buttons/SquareButton";
 import { Question } from "../question/Question";
 
 export const Questions = () => {
   const { questions, comments } = useContext(ForumQuestionsContext);
+  const { loggedUserData } = useContext(ForumUserContext);
   const [newOnTop, setNewOnTop] = useState(false);
 
+  // Komentuoti klausimai
   const commentedQuestions = comments.reduce((unique, question) => {
     if (!unique.some((obj) => obj.questionID === question.questionID)) {
       unique.push(question);
@@ -22,6 +26,33 @@ export const Questions = () => {
   );
 
   console.log(filteredCommentedQuestions);
+
+  // Vartotojo klausimai
+  const userQuestions = questions.filter(
+    (question) => question.authorID === loggedUserData.id
+  );
+
+  console.log(userQuestions);
+
+  // Vartotojo atsakymai
+  const filteredUserComments = commentedQuestions.filter((question) =>
+    questions.filter(
+      (comment) =>
+        comment.authorID === question.id &&
+        comment.authorID === loggedUserData.id
+    )
+  );
+
+  console.log(filteredUserComments);
+
+  const filteredUserCommentedQuestions = questions.filter((question) =>
+    filteredUserComments.filter((comment) => comment.questionID === question.id)
+  );
+
+  console.log("usercomentarai", filteredUserCommentedQuestions);
+  // vartotojo laikinti klausimai
+
+  // const likedQuestions = questions.filter((question)=> loggedUserData())
 
   return (
     <QuestionsSesction>
