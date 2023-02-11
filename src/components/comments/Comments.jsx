@@ -28,6 +28,8 @@ export const Comments = ({ questionID }) => {
     (comments) => comments.questionID === questionID
   );
 
+  console.log("All comments userId", comments);
+
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -49,7 +51,6 @@ export const Comments = ({ questionID }) => {
       },
       body: JSON.stringify(commentData),
     });
-    console.log(commentData);
   };
 
   const handleSubmit = (e) => {
@@ -57,17 +58,30 @@ export const Comments = ({ questionID }) => {
     createComment();
   };
 
+  const deleteComment = (id) => {
+    fetch(`http://localhost:3001/comments/${id}`, {
+      method: "DELETE",
+    }).then((res) => res.json());
+
+    const newCommentsData = comments.filter((comment) => comment.id !== id);
+    setComments([...newCommentsData]);
+  };
+
   return (
     <>
       <h1>Comments:</h1>
       <CommentsBlock>
-        {allComments.map(({ date, comment, userID }) => {
+        {allComments.map(({ date, comment, userID, id }) => {
+          console.log(id);
           const { avatar, username } = users.find((user) => user.id === userID);
           return (
-            <UserCommentBlock key={comment.id}>
+            <UserCommentBlock key={id}>
               <div>
                 <span>{date}</span>
               </div>
+              {isLoggedIn && loggedUserData.id === userID ? (
+                <button onClick={() => deleteComment(id)}>Delete</button>
+              ) : null}
               <CommentUserData>
                 <img src={avatar} alt="" />
                 <span>{username}</span>
