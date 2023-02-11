@@ -26,7 +26,7 @@
           "id": "ldy7l0gu",
           "vote": {
             "isLiked": false,
-            "isDisliked": false
+            "isDisliked": true
           }
         },
         {
@@ -108,12 +108,12 @@
     {
       "id": "ldyh2hbc",
       "date": "10/02/2023, 13:55:35",
-      "title": "Aasdasdsa",
-      "question": "ASDADASDASDASDADADasd",
+      "title": "Pakeistas",
+      "question": "Sitas taip pat pakeistas",
       "authorID": "ldk7lufc",
       "viewed": 0,
       "votes": 0,
-      "edited": ""
+      "edited": "11/02/2023, 09:12:38"
     },
     {
       "id": "ldyvpm0t",

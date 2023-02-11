@@ -20,16 +20,12 @@ export const OpenedQuestion = () => {
   const { loggedUserData, setLoggedUserData, isLoggedIn } =
     useContext(ForumUserContext);
 
-  console.log(isLoggedIn);
-
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
 
   const navigate = useNavigate();
 
   const { id } = useParams();
-
-  console.log(id);
 
   const openedQuestion = questions.find((question) => question.id === id);
 
@@ -54,7 +50,6 @@ export const OpenedQuestion = () => {
   }, []);
 
   const updateUserVote = (id) => {
-    console.log(findUserVote);
     if (findUserVote) {
       const updatedUserVotes = loggedUserData.votes.map((vote) => {
         if (vote.id === id) {
@@ -67,9 +62,9 @@ export const OpenedQuestion = () => {
         }
       });
       handleVoted(id, "minus");
-      console.log(updatedUserVotes);
+
       const editedVotes = { votes: updatedUserVotes };
-      console.log(loggedUserData);
+
       setLoggedUserData({ ...loggedUserData, votes: updatedUserVotes });
       patchDataToServer(`users/${loggedUserData.id}`, editedVotes);
     } else {

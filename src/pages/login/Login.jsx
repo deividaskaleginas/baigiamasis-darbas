@@ -21,8 +21,6 @@ export const Login = () => {
   const { setIsLoggedIn, users, setLoggedUserData } =
     useContext(ForumUserContext);
 
-  console.log(users);
-
   const [failedLogIn, setFailedLogIn] = useState(false);
 
   const navigate = useNavigate();

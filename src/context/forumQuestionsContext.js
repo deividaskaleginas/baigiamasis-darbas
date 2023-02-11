@@ -46,7 +46,6 @@ const ForumQuestionsProvider = ({ children }) => {
   };
 
   const handleVoted = (id, plusMinus) => {
-    console.log(plusMinus);
     const votedUpdatedQuestionList = questions.map((question) => {
       if (question.id === id) {
         if (plusMinus === "plus") {
@@ -61,6 +60,25 @@ const ForumQuestionsProvider = ({ children }) => {
     setQuestion(votedUpdatedQuestionList);
   };
 
+  const editQuestion = (editQuestion, id) => {
+    const editedQuestion = questions.find((question) => question.id === id);
+    const newData = questions.map((question) =>
+      question.id === id
+        ? {
+            id: editedQuestion.id,
+            date: editedQuestion.date,
+            title: editQuestion.title,
+            question: editQuestion.question,
+            authorID: editedQuestion.authorID,
+            viewed: editedQuestion.viewed,
+            votes: editedQuestion.votes,
+            edited: new Date().toLocaleString(),
+          }
+        : question
+    );
+    setQuestion([...newData]);
+  };
+
   return (
     <ForumQuestionsContext.Provider
       value={{
@@ -70,6 +88,7 @@ const ForumQuestionsProvider = ({ children }) => {
         setComments,
         handleViewed,
         handleVoted,
+        editQuestion,
       }}
     >
       {children}
