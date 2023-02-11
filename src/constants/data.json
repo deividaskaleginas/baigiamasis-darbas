@@ -42,6 +42,13 @@
             "isLiked": false,
             "isDisliked": false
           }
+        },
+        {
+          "id": "le07ihye",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
         }
       ]
     },
@@ -61,11 +68,40 @@
       ]
     },
     {
-      "id": "ldyudbjy",
-      "username": "Naujas",
-      "password": "Naujas1@",
-      "confirmPassword": "Naujas1@",
-      "favorites": []
+      "id": "le06puve",
+      "username": "Tes",
+      "password": "Testas1@",
+      "confirmPassword": "Testas1@",
+      "votes": [
+        {
+          "id": "ldu7k233",
+          "vote": {
+            "isLiked": true,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldyh2hbc",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldy7l0gu",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "ldycwtav",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        }
+      ]
     }
   ],
   "questions": [
@@ -123,6 +159,25 @@
       "viewed": 0,
       "votes": 0,
       "edited": ""
+    },
+    {
+      "id": "le06s68r",
+      "date": "11/02/2023, 18:43:10",
+      "title": "Naujoko klausimas",
+      "question": "Laukiu atsakymo",
+      "viewed": 0,
+      "votes": 0,
+      "edited": ""
+    },
+    {
+      "id": "le07ihye",
+      "date": "11/02/2023, 19:03:39",
+      "title": "Nauja tema",
+      "question": "Naujas tekstas",
+      "authorID": "ldk7lufc",
+      "viewed": 0,
+      "votes": 0,
+      "edited": ""
     }
   ],
   "comments": [
@@ -140,6 +195,28 @@
       "userID": "ldk7lufc",
       "comment": "Komentaras/Pakeistas",
       "edited": "11/02/2023, 16:23:21"
+    },
+    {
+      "questionID": "ldyh2hbc",
+      "id": "le0246tq",
+      "date": "11/02/2023, 16:32:33",
+      "userID": "ldk7lufc",
+      "comment": "Gerai, paziurim ar nera kokiu erroru / Ok, kaip ir nera",
+      "edited": "11/02/2023, 16:32:49"
+    },
+    {
+      "questionID": "ldy7l0gu",
+      "id": "le06rkk2",
+      "date": "11/02/2023, 18:42:42",
+      "userID": "le06puve",
+      "comment": "Pavyks!"
+    },
+    {
+      "questionID": "le07ihye",
+      "id": "le07itnp",
+      "date": "11/02/2023, 19:03:54",
+      "userID": "ldk7lufc",
+      "comment": "Naujas komentaras"
     }
   ]
 }

@@ -85,7 +85,7 @@ export const Register = () => {
       username: values.username,
       password: values.password,
       confirmPassword: values.confirmPassword,
-      favorites: [],
+      votes: [],
     };
 
     setLoggedUserData(userData);
