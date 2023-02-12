@@ -56,6 +56,13 @@
             "isLiked": false,
             "isDisliked": false
           }
+        },
+        {
+          "id": "le1tnhmi",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
         }
       ]
     },
@@ -72,6 +79,13 @@
       "password": "Testas1@",
       "confirmPassword": "Testas1@",
       "votes": []
+    },
+    {
+      "id": "le1ut4ho",
+      "username": "NaujasVartotojas",
+      "password": "NaujasVartotojas1@",
+      "confirmPassword": "NaujasVartotojas1@",
+      "votes": []
     }
   ],
   "questions": [
@@ -81,7 +95,7 @@
       "title": "Vartotojo",
       "question": "Vartotojo",
       "authorID": "ldtyiicr",
-      "viewed": 1,
+      "viewed": 4,
       "edited": ""
     },
     {
@@ -97,10 +111,10 @@
       "id": "le1ronqu",
       "date": 1676229365045,
       "title": "Nauja tema",
-      "question": "Klausimo laukas",
+      "question": "Klausimo laukas / editintas",
       "authorID": "ldk7lufc",
-      "viewed": 1,
-      "edited": ""
+      "viewed": 2,
+      "edited": "12/02/2023, 22:19:42"
     },
     {
       "id": "le1t9aq8",
@@ -117,7 +131,7 @@
       "title": "Klausimo antraste",
       "question": "Daugiau informacijos apie klausima",
       "authorID": "ldk7lufc",
-      "viewed": 0,
+      "viewed": 1,
       "edited": ""
     }
   ],

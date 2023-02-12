@@ -17,4 +17,5 @@ const Wrapper = styled.section`
   // media query nuo kada rodyt
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 `;

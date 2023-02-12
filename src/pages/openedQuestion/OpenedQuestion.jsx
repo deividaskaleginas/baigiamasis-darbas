@@ -45,8 +45,6 @@ export const OpenedQuestion = () => {
         setIsLiked(false);
         setIsDisliked(false);
       }
-    } else {
-      console.log("Neprisijunges");
     }
   }, []);
 
@@ -112,8 +110,6 @@ export const OpenedQuestion = () => {
       }).then((res) => res.json());
     });
 
-    console.log(deletedQuestionComments);
-
     setComments([...newCommentsData]);
   };
   return (
@@ -141,7 +137,7 @@ export const OpenedQuestion = () => {
           </QuestionDataBlock>
         </QuestionTopBlock>
         <MoreAboutQuestion>
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <ButtonsBlock>
               <Button onClick={() => setIsLiked(!isLiked)}>
                 {isLiked ? (
@@ -205,8 +201,6 @@ export const OpenedQuestion = () => {
                 )}
               </Button>
             </ButtonsBlock>
-          ) : (
-            <div></div>
           )}
 
           <QuestionInfo>

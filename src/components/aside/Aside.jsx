@@ -81,8 +81,7 @@ const AsideWrapper = styled.aside`
     align-items: flex-end;
     justify-content: center;
     min-width: 15.625rem;
-    max-height: 20.75rem;
-    padding-right: 1.5625rem;
+    padding: 1.5625rem;
     margin-top: 2rem;
     gap: 1.5625rem;
     border-radius: 0.625rem;

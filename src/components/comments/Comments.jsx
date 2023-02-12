@@ -77,8 +77,7 @@ export const Comments = ({ questionID }) => {
       <h1>Comments:</h1>
       <CommentsBlock>
         {allComments.map(({ date, comment, userID, id, edited }) => {
-          console.log(id);
-          const { avatar, username } = users.find((user) => user.id === userID);
+          const { username } = users.find((user) => user.id === userID);
           return (
             <UserCommentBlock key={id}>
               <div>
@@ -142,7 +141,7 @@ const CommentUserData = styled.div`
 `;
 
 const UserComment = styled.div`
-  padding: 0 20px;
+  padding: 0 1.25rem;
 `;
 
 const CommentContainer = styled.div`
@@ -153,7 +152,7 @@ const CommentContainer = styled.div`
 
 const RegistrationFormContainer = styled.div`
   border-radius: 0.625rem;
-  width: 300px;
+  width: 18.75rem;
   margin: 0 1.25rem;
 
   form {

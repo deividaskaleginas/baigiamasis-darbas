@@ -16,7 +16,10 @@ const ForumQuestionsProvider = ({ children }) => {
 
   const [statuses, setStatuses] = useState({
     getQuestionsStatus: "",
+    getCommentsStatus: "",
   });
+
+  // for all questions UI
 
   const [allQuestions, setAllQuestions] = useState(false);
 
@@ -28,13 +31,21 @@ const ForumQuestionsProvider = ({ children }) => {
         setQuestion(data);
         setStatuses({ ...statuses, getQuestionsStatus: "success" });
       })
-      .catch((error) => {
+      .catch(() => {
         setStatuses({ ...statuses, getQuestionsStatus: "error" });
       });
     fetch("http://localhost:3001/comments")
       .then((res) => res.json())
-      .then((data) => setComments(data));
+      .then((data) => {
+        setComments(data);
+        setStatuses({ ...statuses, getCommentsStatus: "success" });
+      })
+      .catch(() => {
+        setStatuses({ ...statuses, getCommentsStatus: "error" });
+      });
   }, [allQuestions]);
+
+  // update viewed count
 
   const handleViewed = (id) => {
     const viewUpdatedquestionsList = questions.map((question) => {
@@ -48,13 +59,8 @@ const ForumQuestionsProvider = ({ children }) => {
     setQuestion(viewUpdatedquestionsList);
 
     const openedQuestion = questions.find((question) => question.id === id);
-    console.log(openedQuestion);
-
-    console.log(openedQuestion?.viewed);
 
     const newQuestionViewedData = { viewed: openedQuestion.viewed + 1 };
-
-    console.log(newQuestionViewedData);
 
     fetch(`http://localhost:3001/questions/${id}`, {
       method: "PATCH",
@@ -105,11 +111,8 @@ const ForumQuestionsProvider = ({ children }) => {
 
   const newOnTopQuestionsAndComments = () => {
     const sortedQuestions = [...questions].sort((a, b) => b.date - a.date);
-    console.log(sortedQuestions);
     setQuestion(sortedQuestions);
   };
-
-  console.log(questions);
 
   // all commented questions
 
@@ -134,8 +137,6 @@ const ForumQuestionsProvider = ({ children }) => {
     const commenteddQuestionsList = comments.map(
       (comment) => comment.questionID
     );
-
-    console.log(commenteddQuestionsList);
 
     const unansweredQuestionsList = questions.filter(
       (question) => !commenteddQuestionsList.includes(question.id)

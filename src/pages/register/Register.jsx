@@ -76,7 +76,6 @@ export const Register = () => {
       (user) => user.username === values.username
     );
     checkedUserList.length > 0 ? setExist(true) : createUser();
-    console.log(checkedUserList);
   };
 
   const createUser = () => {
