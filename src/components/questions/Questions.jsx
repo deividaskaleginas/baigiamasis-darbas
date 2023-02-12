@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+
 import styled from "styled-components";
 import ForumQuestionsContext from "../../context/forumQuestionsContext";
 import ForumUserContext from "../../context/forumUserContext";
 
 import { theme } from "../../styles/theme";
-import { SquareButton } from "../buttons/SquareButton";
+
 import { Question } from "../question/Question";
 
 export const Questions = () => {
@@ -75,6 +75,7 @@ const QuestionsSesction = styled.section`
 
   @media ${theme.device.laptop} {
     max-width: 53.125rem;
+    margin: 0;
   }
 `;
 

@@ -1,16 +1,15 @@
-import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import headerLogo from "../../assets/images/headerLogo.png";
 
-import ForumUserContext from "../../context/forumUserContext";
 import { theme } from "../../styles/theme";
 import { Burger } from "./Burger";
 
 export const Header = () => {
+  const navigate = useNavigate();
   return (
     <HeaderStyled>
-      <div>
+      <div onClick={() => navigate("/")}>
         <img src={headerLogo} />
       </div>
       <Burger />

@@ -16,4 +16,5 @@ export const Home = () => {
 const Wrapper = styled.section`
   // media query nuo kada rodyt
   display: flex;
+  justify-content: center;
 `;

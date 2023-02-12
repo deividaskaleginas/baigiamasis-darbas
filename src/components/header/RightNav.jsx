@@ -28,7 +28,7 @@ export const RightNav = ({ open }) => {
   return (
     <>
       {!isLoggedIn ? (
-        <GuestHeaderUnorderList open={open}>
+        <UserHeaderNavigationList open={open}>
           {NAV_LINKS.map(({ name, link }, index) => {
             return (
               <li key={index}>
@@ -38,7 +38,7 @@ export const RightNav = ({ open }) => {
               </li>
             );
           })}
-        </GuestHeaderUnorderList>
+        </UserHeaderNavigationList>
       ) : (
         <UserHeaderNavigationList open={open}>
           {LOGGED_USER_NAV_LINKS.map(({ name, link, icon }, index) => {
@@ -59,23 +59,6 @@ export const RightNav = ({ open }) => {
     </>
   );
 };
-
-const GuestHeaderUnorderList = styled.ul`
-  display: flex;
-  flex-flow: column nowrap;
-  position: fixed;
-  align-items: flex-end;
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 13.5rem;
-  padding-top: 4.5rem;
-  padding-right: 1.5625rem;
-  gap: 1.5625rem;
-  background-color: ${() => theme.colors.primaryLightBlue};
-  transition: 0.3s ease-in-out;
-`;
 
 const UserHeaderNavigationList = styled.ul`
   display: flex;

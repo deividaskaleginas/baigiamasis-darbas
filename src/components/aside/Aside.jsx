@@ -28,48 +28,55 @@ export const Aside = () => {
   return (
     <>
       {!isLoggedIn ? (
-        <aside>
+        <AsideWrapper>
           {NAV_LINKS.map(({ name, link }, index) => {
             return (
               <li key={index}>
                 <NavLink to={link}>
-                  <h1>{name}</h1>
+                  <GuestHeaderNavLinksText>{name}</GuestHeaderNavLinksText>
                 </NavLink>
               </li>
             );
           })}
-        </aside>
+        </AsideWrapper>
       ) : (
-        <aside>
+        <AsideWrapper>
           {LOGGED_USER_NAV_LINKS.map(({ name, link, icon }, index) => {
             return (
               <li key={index}>
                 <i>{icon}</i>
                 <NavLink to={link}>
-                  <h1>{name}</h1>
+                  <GuestHeaderNavLinksText>{name}</GuestHeaderNavLinksText>
                 </NavLink>
               </li>
             );
           })}
           <LogOutButton onClick={() => setIsLoggedIn(false)}>
-            <h1>Log Out</h1>
+            <GuestHeaderNavLinksText>Log Out</GuestHeaderNavLinksText>
           </LogOutButton>
-        </aside>
+        </AsideWrapper>
       )}
     </>
   );
 };
 
 const AsideWrapper = styled.aside`
-  /* display: none; */
+  display: none;
 
-  //media query nuo desktopo
-  //
+  @media ${theme.device.laptop} {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 15.625rem;
+    max-height: 20.75rem;
+    padding-right: 1.5625rem;
+    margin-top: 2rem;
+    gap: 1.5625rem;
+    border-radius: 0.625rem;
+    background-color: ${theme.colors.primaryLightBlue};
+  }
 `;
-
-const GuestHeaderUnorderList = styled.ul``;
-
-const UserHeaderNavigationList = styled.ul``;
 
 const LogOutButton = styled.button`
   background: none;
