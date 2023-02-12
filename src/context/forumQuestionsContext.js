@@ -18,6 +18,8 @@ const ForumQuestionsProvider = ({ children }) => {
     getQuestionsStatus: "",
   });
 
+  const [allQuestions, setAllQuestions] = useState(false);
+
   useEffect(() => {
     setStatuses({ getQuestionsStatus: "loading" });
     fetch("http://localhost:3001/questions")
@@ -32,7 +34,7 @@ const ForumQuestionsProvider = ({ children }) => {
     fetch("http://localhost:3001/comments")
       .then((res) => res.json())
       .then((data) => setComments(data));
-  }, []);
+  }, [allQuestions]);
 
   const handleViewed = (id) => {
     const viewUpdatedquestionsList = questions.map((question) => {
@@ -96,6 +98,42 @@ const ForumQuestionsProvider = ({ children }) => {
     setComments([...newData]);
   };
 
+  // all commented questions
+
+  const allCommentedQuestions = () => {
+    const commentedQuestions = comments.reduce((unique, question) => {
+      if (!unique.some((obj) => obj.questionID === question.questionID)) {
+        unique.push(question);
+      }
+      return unique;
+    }, []);
+
+    const filteredCommentedQuestions = questions.filter((question) =>
+      commentedQuestions.some((comment) => comment.questionID === question.id)
+    );
+
+    setQuestion(filteredCommentedQuestions);
+  };
+
+  ////////////////////////////
+  // Vartotojo klausimai
+  // const userQuestions = questions.filter(
+  //   (question) => question.authorID === loggedUserData.id
+  // );
+
+  // // Vartotojo atsakymai
+  // const filteredUserComments = commentedQuestions.filter((question) =>
+  //   questions.filter(
+  //     (comment) =>
+  //       comment.authorID === question.id &&
+  //       comment.authorID === loggedUserData.id
+  //   )
+  // );
+
+  // const filteredUserCommentedQuestions = questions.filter((question) =>
+  //   filteredUserComments.filter((comment) => comment.questionID === question.id)
+  // );
+
   return (
     <ForumQuestionsContext.Provider
       value={{
@@ -107,6 +145,9 @@ const ForumQuestionsProvider = ({ children }) => {
         handleVoted,
         editQuestion,
         editComment,
+        allCommentedQuestions,
+        setAllQuestions,
+        allQuestions,
       }}
     >
       {children}

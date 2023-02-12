@@ -7,49 +7,19 @@ import ForumUserContext from "../../context/forumUserContext";
 import { theme } from "../../styles/theme";
 
 import { Question } from "../question/Question";
+import { filteredCommentedQuestions } from "./QuestionsFilters";
 
 export const Questions = () => {
-  const { questions, comments } = useContext(ForumQuestionsContext);
+  const {
+    questions,
+    comments,
+    allCommentedQuestions,
+    allQuestions,
+    setAllQuestions,
+  } = useContext(ForumQuestionsContext);
   const { loggedUserData } = useContext(ForumUserContext);
   const [newOnTop, setNewOnTop] = useState(false);
 
-  // Komentuoti klausimai
-  const commentedQuestions = comments.reduce((unique, question) => {
-    if (!unique.some((obj) => obj.questionID === question.questionID)) {
-      unique.push(question);
-    }
-    return unique;
-  }, []);
-
-  const filteredCommentedQuestions = questions.filter((question) =>
-    commentedQuestions.some((comment) => comment.questionID === question.id)
-  );
-
-  console.log(filteredCommentedQuestions);
-
-  // Vartotojo klausimai
-  const userQuestions = questions.filter(
-    (question) => question.authorID === loggedUserData.id
-  );
-
-  console.log(userQuestions);
-
-  // Vartotojo atsakymai
-  const filteredUserComments = commentedQuestions.filter((question) =>
-    questions.filter(
-      (comment) =>
-        comment.authorID === question.id &&
-        comment.authorID === loggedUserData.id
-    )
-  );
-
-  console.log(filteredUserComments);
-
-  const filteredUserCommentedQuestions = questions.filter((question) =>
-    filteredUserComments.filter((comment) => comment.questionID === question.id)
-  );
-
-  console.log("usercomentarai", filteredUserCommentedQuestions);
   // vartotojo laikinti klausimai
 
   // const likedQuestions = questions.filter((question)=> loggedUserData())
@@ -58,6 +28,8 @@ export const Questions = () => {
     <QuestionsSesction>
       <QuestionsSesctionButtonsBlock>
         <button onClick={() => setNewOnTop(!newOnTop)}>New on top</button>
+        <button onClick={() => setAllQuestions(!allQuestions)}>All</button>
+        <button onClick={() => allCommentedQuestions()}>All Commented</button>
       </QuestionsSesctionButtonsBlock>
       <AllQuestionsBlock newOnTop={newOnTop}>
         {questions.map((question, index) => {
