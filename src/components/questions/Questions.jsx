@@ -16,9 +16,9 @@ export const Questions = () => {
     allCommentedQuestions,
     allQuestions,
     setAllQuestions,
+    newOnTopQuestionsAndComments,
   } = useContext(ForumQuestionsContext);
   const { loggedUserData } = useContext(ForumUserContext);
-  const [newOnTop, setNewOnTop] = useState(false);
 
   // vartotojo laikinti klausimai
 
@@ -27,11 +27,13 @@ export const Questions = () => {
   return (
     <QuestionsSesction>
       <QuestionsSesctionButtonsBlock>
-        <button onClick={() => setNewOnTop(!newOnTop)}>New on top</button>
+        <button onClick={() => newOnTopQuestionsAndComments()}>
+          New on top
+        </button>
         <button onClick={() => setAllQuestions(!allQuestions)}>All</button>
         <button onClick={() => allCommentedQuestions()}>All Commented</button>
       </QuestionsSesctionButtonsBlock>
-      <AllQuestionsBlock newOnTop={newOnTop}>
+      <AllQuestionsBlock>
         {questions.map((question, index) => {
           return <Question key={index} data={question} />;
         })}
@@ -59,5 +61,5 @@ const QuestionsSesctionButtonsBlock = styled.div`
 
 const AllQuestionsBlock = styled.div`
   display: flex;
-  flex-direction: ${({ newOnTop }) => (newOnTop ? "column-reverse" : "column")};
+  flex-direction: column;
 `;

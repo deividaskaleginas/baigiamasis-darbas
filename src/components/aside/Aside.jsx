@@ -7,6 +7,7 @@ import {
   thumbsUpUserMeniuIcon,
   plus,
 } from "../../assets/svg";
+import ForumQuestionsContext from "../../context/forumQuestionsContext";
 import ForumUserContext from "../../context/forumUserContext";
 import { theme } from "../../styles/theme";
 import { GuestHeaderNavLinksText } from "../typography/Typography";
@@ -16,15 +17,21 @@ const NAV_LINKS = [
   { name: "Register", link: "/register" },
 ];
 
-const LOGGED_USER_NAV_LINKS = [
-  { name: "Start a New Topic", link: "/add", icon: plus },
-  { name: "My Questions", link: "", icon: questionUserMeniuIcon },
-  { name: "My Answers", link: "", icon: chatsCircleUserMeniuIcon },
-  { name: "My Likes", link: "", icon: thumbsUpUserMeniuIcon },
-];
-
 export const Aside = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(ForumUserContext);
+  const { isLoggedIn, setIsLoggedIn, loggedUserData } =
+    useContext(ForumUserContext);
+  const { filteredUserQuestions } = useContext(ForumQuestionsContext);
+  const LOGGED_USER_NAV_LINKS = [
+    { name: "Start a New Topic", link: "/add", icon: plus },
+    {
+      name: "My Questions",
+      link: "",
+      icon: questionUserMeniuIcon,
+    },
+    { name: "My Answers", link: "", icon: chatsCircleUserMeniuIcon },
+    { name: "My Likes", link: "", icon: thumbsUpUserMeniuIcon },
+  ];
+
   return (
     <>
       {!isLoggedIn ? (
@@ -54,6 +61,9 @@ export const Aside = () => {
           <LogOutButton onClick={() => setIsLoggedIn(false)}>
             <GuestHeaderNavLinksText>Log Out</GuestHeaderNavLinksText>
           </LogOutButton>
+          <button onClick={() => filteredUserQuestions(loggedUserData.id)}>
+            my
+          </button>
         </AsideWrapper>
       )}
     </>

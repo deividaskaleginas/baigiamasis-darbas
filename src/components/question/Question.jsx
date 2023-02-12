@@ -63,6 +63,7 @@ const QuestionBlock = styled.div`
 
   @media ${theme.device.laptop} {
     max-width: 53.125rem;
+    min-width: 48.375rem;
   }
 `;
 

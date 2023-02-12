@@ -98,6 +98,14 @@ const ForumQuestionsProvider = ({ children }) => {
     setComments([...newData]);
   };
 
+  // all new comments on top
+
+  const newOnTopQuestionsAndComments = () => {
+    const reversed = questions.reverse();
+    console.log(reversed);
+    setQuestion(reversed);
+  };
+
   // all commented questions
 
   const allCommentedQuestions = () => {
@@ -115,11 +123,16 @@ const ForumQuestionsProvider = ({ children }) => {
     setQuestion(filteredCommentedQuestions);
   };
 
-  ////////////////////////////
-  // Vartotojo klausimai
-  // const userQuestions = questions.filter(
-  //   (question) => question.authorID === loggedUserData.id
-  // );
+  // user questions
+
+  const filteredUserQuestions = (userID) => {
+    const userQuestions = questions.filter(
+      (question) => question.authorID === userID
+    );
+
+    console.log(userID);
+    setQuestion(userQuestions);
+  };
 
   // // Vartotojo atsakymai
   // const filteredUserComments = commentedQuestions.filter((question) =>
@@ -148,6 +161,8 @@ const ForumQuestionsProvider = ({ children }) => {
         allCommentedQuestions,
         setAllQuestions,
         allQuestions,
+        newOnTopQuestionsAndComments,
+        filteredUserQuestions,
       }}
     >
       {children}
