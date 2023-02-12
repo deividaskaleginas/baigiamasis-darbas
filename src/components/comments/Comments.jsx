@@ -5,6 +5,7 @@ import uniqid from "uniqid";
 
 import ForumQuestionsContext from "../../context/forumQuestionsContext";
 import ForumUserContext from "../../context/forumUserContext";
+import { theme } from "../../styles/theme";
 import { FormInput } from "../formInput/FormInput";
 import { SmallTextRegulat } from "../typography/Typography";
 
@@ -23,7 +24,7 @@ export const Comments = ({ questionID }) => {
       type: "textarea",
       placeholder: "Comment",
       errorMessage: "Comment should be 3-240 characters",
-      pattern: "^[a-zA-Z0-9]{3,16}$",
+      pattern: "^.{3,16}$",
       label: "Comment",
       required: true,
     },
@@ -32,8 +33,6 @@ export const Comments = ({ questionID }) => {
   const allComments = comments.filter(
     (comments) => comments.questionID === questionID
   );
-
-  console.log("All comments userId", comments);
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -83,18 +82,17 @@ export const Comments = ({ questionID }) => {
           return (
             <UserCommentBlock key={id}>
               <div>
-                <span>{date}</span>
+                <span>Posted: {date}</span>
                 {edited && <SmallTextRegulat>Edited {edited}</SmallTextRegulat>}
               </div>
               {isLoggedIn && loggedUserData.id === userID ? (
-                <div>
+                <AuthorOptionsBlock>
                   <button onClick={() => deleteComment(id)}>Delete</button>
                   <Link to={`/comment/${id}`}>Edit</Link>
-                </div>
+                </AuthorOptionsBlock>
               ) : null}
               <CommentUserData>
-                <img src={avatar} alt="" />
-                <span>{username}</span>
+                <span>User: {username}</span>
               </CommentUserData>
               <UserComment>
                 <p>{comment}</p>
@@ -131,8 +129,8 @@ const CommentUserData = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 15px;
-  padding: 0 20px;
+  gap: 0.9375rem;
+  padding: 0 1.25rem;
 
   img {
     width: 2.5rem;
@@ -154,9 +152,9 @@ const CommentContainer = styled.div`
 `;
 
 const RegistrationFormContainer = styled.div`
-  border-radius: 10px;
+  border-radius: 0.625rem;
   width: 300px;
-  margin: 0 20px;
+  margin: 0 1.25rem;
 
   form {
     h1 {
@@ -196,4 +194,27 @@ const UserCommentBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
+
+const AuthorOptionsBlock = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.625rem;
+
+  button {
+    color: ${theme.colors.white};
+    background: ${theme.colors.primaryDarkBluish};
+    padding: 0.3125rem;
+    border: none;
+    border-radius: 0.625rem;
+  }
+
+  a {
+    color: ${theme.colors.white};
+    background: ${theme.colors.primaryDarkBluish};
+    text-align: center;
+    padding: 0.3125rem;
+    border-radius: 0.625rem;
+    min-width: 3.125rem;
+  }
 `;

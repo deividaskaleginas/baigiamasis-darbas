@@ -9,77 +9,49 @@
       "confirmPassword": "Testas1@",
       "votes": [
         {
-          "id": "ldu7k233",
+          "id": "le1ltxtq",
           "vote": {
             "isLiked": true,
             "isDisliked": false
           }
         },
         {
-          "id": "ldy8ygix",
+          "id": "le1moxjo",
+          "vote": {
+            "isLiked": true,
+            "isDisliked": false
+          }
+        },
+        {
+          "id": "le1m1fcv",
           "vote": {
             "isLiked": false,
             "isDisliked": false
           }
         },
         {
-          "id": "ldy7l0gu",
+          "id": "le1m181j",
           "vote": {
             "isLiked": false,
             "isDisliked": false
           }
         },
         {
-          "id": "ldyh2hbc",
+          "id": "le1ronqu",
           "vote": {
             "isLiked": false,
             "isDisliked": false
           }
         },
         {
-          "id": "ldyg3yws",
+          "id": "le1t9aq8",
           "vote": {
             "isLiked": false,
             "isDisliked": false
           }
         },
         {
-          "id": "ldycwtav",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldyh0iro",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le07ihye",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldyvpm0t",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le14s70x",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le06s68r",
+          "id": "le1mnty8",
           "vote": {
             "isLiked": false,
             "isDisliked": false
@@ -92,163 +64,78 @@
       "username": "Vartotojas",
       "password": "Vartotojas1@",
       "confirmPassword": "Vartotojas1@",
-      "votes": [
-        {
-          "id": "ldvwrfhn",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": true
-          }
-        }
-      ]
+      "votes": []
     },
     {
       "id": "le06puve",
       "username": "Tes",
       "password": "Testas1@",
       "confirmPassword": "Testas1@",
-      "votes": [
-        {
-          "id": "ldu7k233",
-          "vote": {
-            "isLiked": true,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldyh2hbc",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldy7l0gu",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "ldycwtav",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        }
-      ]
+      "votes": []
     }
   ],
   "questions": [
     {
-      "id": "ldu7k233",
-      "date": "07/02/2023, 14:18:14",
-      "title": "Which of sci-fis favourite technologies would you like to see become a reality?",
-      "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue magna justo, volutpat, non amet massa viverra euismod id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue magna justo, volutpat, non amet massa viverra euismod id.",
-      "authorID": "autoriausID",
-      "votes": 0,
-      "viewed": 0
-    },
-    {
-      "id": "ldy7l0gu",
-      "date": "10/02/2023, 09:30:04",
-      "title": "Bandymui",
-      "question": "Paziuresim ar pavyks",
-      "viewed": 0,
-      "votes": 0,
-      "comments": []
-    },
-    {
-      "id": "ldycwtav",
-      "date": "10/02/2023, 11:59:12",
-      "title": "Ziurim",
-      "question": "ArBus",
-      "viewed": 0,
-      "votes": 0,
+      "id": "le1mnty8",
+      "date": 1676220928351,
+      "title": "Vartotojo",
+      "question": "Vartotojo",
+      "authorID": "ldtyiicr",
+      "viewed": 1,
       "edited": ""
     },
     {
-      "id": "ldyh0iro",
-      "date": "10/02/2023, 13:54:04",
-      "title": "asdasd",
-      "question": "sadasddasdasdasdasd",
-      "viewed": 0,
-      "votes": 0,
+      "id": "le1moxjo",
+      "date": 1676220979668,
+      "title": "Varototojo naujas",
+      "question": "Naujausias varotojo klausimas?",
+      "authorID": "ldtyiicr",
+      "viewed": 2,
       "edited": ""
     },
     {
-      "id": "ldyvpm0t",
-      "date": "10/02/2023, 20:45:29",
-      "title": "Ar veikia?",
-      "question": "Paziurim serveryje ar veikia duomenys?",
-      "viewed": 0,
-      "votes": 0,
+      "id": "le1ronqu",
+      "date": 1676229365045,
+      "title": "Nauja tema",
+      "question": "Klausimo laukas",
+      "authorID": "ldk7lufc",
+      "viewed": 1,
       "edited": ""
     },
     {
-      "id": "le06s68r",
-      "date": "11/02/2023, 18:43:10",
-      "title": "Naujoko klausimas",
-      "question": "Laukiu atsakymo",
-      "viewed": 0,
-      "votes": 0,
-      "edited": ""
+      "id": "le1t9aq8",
+      "date": 1676232007567,
+      "title": "adadasd",
+      "question": "asdadad/pakeistas",
+      "authorID": "ldk7lufc",
+      "viewed": 1,
+      "edited": "12/02/2023, 22:00:35"
     },
     {
-      "id": "le090bzk",
-      "date": "11/02/2023, 19:45:30",
-      "title": "adasd",
-      "question": "asdad",
-      "viewed": 0,
-      "votes": 0,
-      "edited": ""
-    },
-    {
-      "id": "le14s70x",
-      "date": "12/02/2023, 10:34:58",
-      "title": "Title",
-      "question": "Klausimas",
+      "id": "le1tnhmi",
+      "date": 1676232669690,
+      "title": "Klausimo antraste",
+      "question": "Daugiau informacijos apie klausima",
       "authorID": "ldk7lufc",
       "viewed": 0,
-      "votes": 0,
       "edited": ""
     }
   ],
   "comments": [
     {
-      "questionID": "ldy7l0gu",
-      "id": "le06rkk2",
-      "date": "11/02/2023, 18:42:42",
-      "userID": "le06puve",
-      "comment": "Pavyks!"
+      "questionID": "le1moxjo",
+      "id": "le1mv6o8",
+      "date": "12/02/2023, 19:01:11",
+      "userID": "ldtyiicr",
+      "comment": "Pakomentuotas"
     },
     {
-      "questionID": "ldycwtav",
-      "id": "le14r2x0",
-      "date": "12/02/2023, 10:34:06",
+      "questionID": "le1t9aq8",
+      "id": "le1tfr2w",
+      "date": "12/02/2023, 22:05:08",
       "userID": "ldk7lufc",
-      "comment": "asdasd"
-    },
-    {
-      "questionID": "ldy7l0gu",
-      "id": "le1bkl36",
-      "date": "12/02/2023, 13:45:01",
-      "userID": "ldk7lufc",
-      "comment": "Testui"
-    },
-    {
-      "questionID": "le14s70x",
-      "id": "le1bn370",
-      "date": "12/02/2023, 13:46:57",
-      "userID": "ldk7lufc",
-      "comment": "Dar"
-    },
-    {
-      "questionID": "ldu7k233",
-      "id": "le1bph6o",
-      "date": "12/02/2023, 13:48:49",
-      "userID": "ldk7lufc",
-      "comment": "CiaKaip"
+      "comment": "Veikia? / pakeistas",
+      "edited": "12/02/2023, 22:09:10"
     }
   ]
 }

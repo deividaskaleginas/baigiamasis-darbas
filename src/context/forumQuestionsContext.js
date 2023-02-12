@@ -44,22 +44,25 @@ const ForumQuestionsProvider = ({ children }) => {
         return question;
       }
     });
-    setQuestion(viewUpdatedquestionsList);
-  };
 
-  const handleVoted = (id, plusMinus) => {
-    const votedUpdatedQuestionList = questions.map((question) => {
-      if (question.id === id) {
-        if (plusMinus === "plus") {
-          return { ...question, votes: question.votes + 1 };
-        } else {
-          return { ...question, votes: question.votes - 1 };
-        }
-      } else {
-        return question;
-      }
-    });
-    setQuestion(votedUpdatedQuestionList);
+    setQuestion(viewUpdatedquestionsList);
+
+    const openedQuestion = questions.find((question) => question.id === id);
+    console.log(openedQuestion);
+
+    console.log(openedQuestion?.viewed);
+
+    const newQuestionViewedData = { viewed: openedQuestion.viewed + 1 };
+
+    console.log(newQuestionViewedData);
+
+    fetch(`http://localhost:3001/questions/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newQuestionViewedData),
+    }).then((res) => res.json());
   };
 
   const editQuestion = (editQuestion, id) => {
@@ -98,13 +101,15 @@ const ForumQuestionsProvider = ({ children }) => {
     setComments([...newData]);
   };
 
-  // all new comments on top
+  // all new questions on top
 
   const newOnTopQuestionsAndComments = () => {
-    const reversed = questions.reverse();
-    console.log(reversed);
-    setQuestion(reversed);
+    const sortedQuestions = [...questions].sort((a, b) => b.date - a.date);
+    console.log(sortedQuestions);
+    setQuestion(sortedQuestions);
   };
+
+  console.log(questions);
 
   // all commented questions
 
@@ -123,6 +128,22 @@ const ForumQuestionsProvider = ({ children }) => {
     setQuestion(filteredCommentedQuestions);
   };
 
+  // unanswered questions
+
+  const unansweredQuestions = (comments) => {
+    const commenteddQuestionsList = comments.map(
+      (comment) => comment.questionID
+    );
+
+    console.log(commenteddQuestionsList);
+
+    const unansweredQuestionsList = questions.filter(
+      (question) => !commenteddQuestionsList.includes(question.id)
+    );
+
+    setQuestion(unansweredQuestionsList);
+  };
+
   // user questions
 
   const filteredUserQuestions = (userID) => {
@@ -130,22 +151,21 @@ const ForumQuestionsProvider = ({ children }) => {
       (question) => question.authorID === userID
     );
 
-    console.log(userID);
     setQuestion(userQuestions);
   };
 
-  // // Vartotojo atsakymai
-  // const filteredUserComments = commentedQuestions.filter((question) =>
-  //   questions.filter(
-  //     (comment) =>
-  //       comment.authorID === question.id &&
-  //       comment.authorID === loggedUserData.id
-  //   )
-  // );
+  // user voted questions
 
-  // const filteredUserCommentedQuestions = questions.filter((question) =>
-  //   filteredUserComments.filter((comment) => comment.questionID === question.id)
-  // );
+  const handleMyLikedQuestions = (userVotes) => {
+    const likedVotesList = userVotes
+      ?.filter((vote) => vote.vote.isLiked == true)
+      .map((vote) => vote.id);
+
+    const likedQuestions = questions.filter((question) =>
+      likedVotesList.includes(question.id)
+    );
+    setQuestion(likedQuestions);
+  };
 
   return (
     <ForumQuestionsContext.Provider
@@ -155,7 +175,6 @@ const ForumQuestionsProvider = ({ children }) => {
         comments,
         setComments,
         handleViewed,
-        handleVoted,
         editQuestion,
         editComment,
         allCommentedQuestions,
@@ -163,6 +182,8 @@ const ForumQuestionsProvider = ({ children }) => {
         allQuestions,
         newOnTopQuestionsAndComments,
         filteredUserQuestions,
+        unansweredQuestions,
+        handleMyLikedQuestions,
       }}
     >
       {children}

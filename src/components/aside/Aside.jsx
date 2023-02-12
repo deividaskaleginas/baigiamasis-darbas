@@ -10,6 +10,7 @@ import {
 import ForumQuestionsContext from "../../context/forumQuestionsContext";
 import ForumUserContext from "../../context/forumUserContext";
 import { theme } from "../../styles/theme";
+import { UserNavButton } from "../buttons/UserNavButton";
 import { GuestHeaderNavLinksText } from "../typography/Typography";
 
 const NAV_LINKS = [
@@ -20,17 +21,11 @@ const NAV_LINKS = [
 export const Aside = () => {
   const { isLoggedIn, setIsLoggedIn, loggedUserData } =
     useContext(ForumUserContext);
-  const { filteredUserQuestions } = useContext(ForumQuestionsContext);
-  const LOGGED_USER_NAV_LINKS = [
-    { name: "Start a New Topic", link: "/add", icon: plus },
-    {
-      name: "My Questions",
-      link: "",
-      icon: questionUserMeniuIcon,
-    },
-    { name: "My Answers", link: "", icon: chatsCircleUserMeniuIcon },
-    { name: "My Likes", link: "", icon: thumbsUpUserMeniuIcon },
-  ];
+  const {
+    filteredUserQuestions,
+
+    handleMyLikedQuestions,
+  } = useContext(ForumQuestionsContext);
 
   return (
     <>
@@ -48,22 +43,29 @@ export const Aside = () => {
         </AsideWrapper>
       ) : (
         <AsideWrapper>
-          {LOGGED_USER_NAV_LINKS.map(({ name, link, icon }, index) => {
-            return (
-              <li key={index}>
-                <i>{icon}</i>
-                <NavLink to={link}>
-                  <GuestHeaderNavLinksText>{name}</GuestHeaderNavLinksText>
-                </NavLink>
-              </li>
-            );
-          })}
+          <NavLink to={"/add"}>
+            <LinkStyled>
+              <i>{plus}</i>
+              <GuestHeaderNavLinksText>
+                Start a New Topic
+              </GuestHeaderNavLinksText>
+            </LinkStyled>
+          </NavLink>
+
+          <UserNavButton
+            handleClick={() => filteredUserQuestions(loggedUserData.id)}
+            icon={questionUserMeniuIcon}
+            text={"My Questions "}
+          />
+
+          <UserNavButton
+            handleClick={() => handleMyLikedQuestions(loggedUserData.votes)}
+            icon={thumbsUpUserMeniuIcon}
+            text={"My Likes "}
+          />
           <LogOutButton onClick={() => setIsLoggedIn(false)}>
             <GuestHeaderNavLinksText>Log Out</GuestHeaderNavLinksText>
           </LogOutButton>
-          <button onClick={() => filteredUserQuestions(loggedUserData.id)}>
-            my
-          </button>
         </AsideWrapper>
       )}
     </>
@@ -91,4 +93,10 @@ const AsideWrapper = styled.aside`
 const LogOutButton = styled.button`
   background: none;
   border: none;
+`;
+
+const LinkStyled = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
 `;

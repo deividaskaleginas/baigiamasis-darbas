@@ -43,12 +43,11 @@ export const AddQuestion = () => {
   const createQuestion = () => {
     const questionData = {
       id: uniqid(),
-      date: new Date().toLocaleString(),
+      date: Date.now(),
       title: values.title,
       question: values.question,
       authorID: loggedUserData.id,
       viewed: 0,
-      votes: 0,
       edited: "",
     };
 

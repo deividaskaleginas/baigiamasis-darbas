@@ -2,36 +2,37 @@ import { useContext, useState } from "react";
 
 import styled from "styled-components";
 import ForumQuestionsContext from "../../context/forumQuestionsContext";
-import ForumUserContext from "../../context/forumUserContext";
 
 import { theme } from "../../styles/theme";
 
 import { Question } from "../question/Question";
-import { filteredCommentedQuestions } from "./QuestionsFilters";
 
 export const Questions = () => {
   const {
-    questions,
     comments,
+    questions,
     allCommentedQuestions,
     allQuestions,
     setAllQuestions,
     newOnTopQuestionsAndComments,
+    unansweredQuestions,
   } = useContext(ForumQuestionsContext);
-  const { loggedUserData } = useContext(ForumUserContext);
-
-  // vartotojo laikinti klausimai
-
-  // const likedQuestions = questions.filter((question)=> loggedUserData())
 
   return (
     <QuestionsSesction>
       <QuestionsSesctionButtonsBlock>
-        <button onClick={() => newOnTopQuestionsAndComments()}>
+        <ButtonsStyled onClick={newOnTopQuestionsAndComments}>
           New on top
-        </button>
-        <button onClick={() => setAllQuestions(!allQuestions)}>All</button>
-        <button onClick={() => allCommentedQuestions()}>All Commented</button>
+        </ButtonsStyled>
+        <ButtonsStyled onClick={() => setAllQuestions(!allQuestions)}>
+          All
+        </ButtonsStyled>
+        <ButtonsStyled onClick={() => allCommentedQuestions()}>
+          All Commented
+        </ButtonsStyled>
+        <ButtonsStyled onClick={() => unansweredQuestions(comments)}>
+          Unanswered
+        </ButtonsStyled>
       </QuestionsSesctionButtonsBlock>
       <AllQuestionsBlock>
         {questions.map((question, index) => {
@@ -57,9 +58,19 @@ const QuestionsSesctionButtonsBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.9375rem 0;
 `;
 
 const AllQuestionsBlock = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const ButtonsStyled = styled.button`
+  color: ${theme.colors.white};
+  background: ${theme.colors.primaryDarkBluish};
+  border: none;
+  padding: 0.3125rem;
+  min-width: 5rem;
+  border-radius: 5px;
 `;

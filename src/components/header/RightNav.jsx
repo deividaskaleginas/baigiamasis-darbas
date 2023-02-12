@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import {
-  chatsCircleUserMeniuIcon,
   questionUserMeniuIcon,
   thumbsUpUserMeniuIcon,
   plus,
 } from "../../assets/svg";
+import ForumQuestionsContext from "../../context/forumQuestionsContext";
 import ForumUserContext from "../../context/forumUserContext";
 import { theme } from "../../styles/theme";
+import { UserNavButton } from "../buttons/UserNavButton";
 import { GuestHeaderNavLinksText } from "../typography/Typography";
 
 const NAV_LINKS = [
@@ -18,13 +19,16 @@ const NAV_LINKS = [
 
 const LOGGED_USER_NAV_LINKS = [
   { name: "Start a New Topic", link: "/add", icon: plus },
-  { name: "My Questions", link: "", icon: questionUserMeniuIcon },
-  { name: "My Answers", link: "", icon: chatsCircleUserMeniuIcon },
-  { name: "My Likes", link: "", icon: thumbsUpUserMeniuIcon },
 ];
 
 export const RightNav = ({ open }) => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(ForumUserContext);
+  const { isLoggedIn, setIsLoggedIn, loggedUserData } =
+    useContext(ForumUserContext);
+  const {
+    filteredUserQuestions,
+
+    handleMyLikedQuestions,
+  } = useContext(ForumQuestionsContext);
   return (
     <>
       {!isLoggedIn ? (
@@ -51,6 +55,17 @@ export const RightNav = ({ open }) => {
               </li>
             );
           })}
+          <UserNavButton
+            handleClick={() => filteredUserQuestions(loggedUserData.id)}
+            icon={questionUserMeniuIcon}
+            text={"My Questions "}
+          />
+
+          <UserNavButton
+            handleClick={() => handleMyLikedQuestions(loggedUserData.votes)}
+            icon={thumbsUpUserMeniuIcon}
+            text={"My Likes "}
+          />
           <LogOutButton onClick={() => setIsLoggedIn(false)}>
             <GuestHeaderNavLinksText>Log Out</GuestHeaderNavLinksText>
           </LogOutButton>

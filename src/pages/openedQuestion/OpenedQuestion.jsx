@@ -14,8 +14,9 @@ import { theme } from "../../styles/theme";
 import { Comments } from "../../components/comments/Comments";
 
 export const OpenedQuestion = () => {
-  const { questions, setQuestion, comments, setComments, handleVoted } =
-    useContext(ForumQuestionsContext);
+  const { questions, setQuestion, comments, setComments } = useContext(
+    ForumQuestionsContext
+  );
 
   const { loggedUserData, setLoggedUserData, isLoggedIn } =
     useContext(ForumUserContext);
@@ -61,7 +62,6 @@ export const OpenedQuestion = () => {
           return vote;
         }
       });
-      handleVoted(id, "minus");
 
       const editedVotes = { votes: updatedUserVotes };
 
@@ -81,7 +81,6 @@ export const OpenedQuestion = () => {
         votes: [...loggedUserData?.votes, addUserVote],
       });
       patchDataToServer(`users/${loggedUserData.id}`, addUserVoteToServer);
-      handleVoted(id, "plus");
     }
   };
   useEffect(() => {
@@ -127,7 +126,9 @@ export const OpenedQuestion = () => {
 
             <div>{openedQuestion?.authorID}</div>
             <QuestionDetails>
-              <SmallTextRegulat>Asked {openedQuestion?.date}</SmallTextRegulat>
+              <SmallTextRegulat>
+                Asked {new Date(openedQuestion?.date).toLocaleString()}
+              </SmallTextRegulat>
               <SmallTextRegulat>
                 Viewed {openedQuestion?.viewed}
               </SmallTextRegulat>
@@ -291,7 +292,7 @@ const MoreAboutQuestion = styled.div`
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 6fr;
-  padding-bottom: 30px;
+  padding-bottom: 1.875rem;
 
   border-bottom: 1.5px solid #e0e0e0;
 `;
@@ -318,5 +319,23 @@ const QuestionInfo = styled.div`
 
 const AuthorOptionsBlock = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  gap: 0.625rem;
+
+  button {
+    color: ${theme.colors.white};
+    background: ${theme.colors.primaryDarkBluish};
+    padding: 0.3125rem;
+    border: none;
+    border-radius: 0.625rem;
+  }
+
+  a {
+    color: ${theme.colors.white};
+    background: ${theme.colors.primaryDarkBluish};
+    text-align: center;
+    padding: 0.3125rem;
+    border-radius: 0.625rem;
+    min-width: 3.125rem;
+  }
 `;

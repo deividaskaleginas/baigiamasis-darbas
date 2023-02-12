@@ -32,7 +32,9 @@ export const Question = ({ data, index }) => {
               <MediumTextBold>{data.title}</MediumTextBold>
             </Link>
 
-            <SmallTextRegulat>{data.date}</SmallTextRegulat>
+            <SmallTextRegulat>
+              {new Date(data.date).toLocaleString()}
+            </SmallTextRegulat>
           </QuestionTitleAndDateBlock>
           <QuestionIntroduction>
             <LargeTextRegular>
@@ -43,7 +45,6 @@ export const Question = ({ data, index }) => {
         <InquiredUserAvatar>{data.authorID}</InquiredUserAvatar>
       </QuestionTop>
       <QuestionTopBottom>
-        <SmallTextRegulat>{data.votes} votes</SmallTextRegulat>
         <Viewed>
           <img src={view} alt="" />
           <SmallTextRegulat>{data.viewed}</SmallTextRegulat>
