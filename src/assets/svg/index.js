@@ -6,3 +6,7 @@ export * from "../svg/person";
 export * from "../svg/plus";
 export * from "./edit";
 export * from "./bin";
+export * from "./arrowUpGreen";
+export * from "./arrowUpGrey";
+export * from "./arrowDownRed";
+export * from "./arrowDownGrey";

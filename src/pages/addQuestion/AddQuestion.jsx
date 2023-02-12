@@ -47,6 +47,7 @@ export const AddQuestion = () => {
       title: values.title,
       question: values.question,
       authorID: loggedUserData.id,
+      author: loggedUserData.username,
       viewed: 0,
       edited: "",
     };
@@ -108,7 +109,7 @@ const QuestionPostSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
+  gap: 1.875rem;
   height: 100vh;
   max-width: 23.75rem;
   margin: 0 auto;
@@ -116,7 +117,7 @@ const QuestionPostSection = styled.section`
   form {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 2.5rem;
   }
 `;
 const TextBlock = styled.div``;

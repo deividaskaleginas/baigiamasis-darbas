@@ -35,9 +35,14 @@ export const Questions = () => {
         </ButtonsStyled>
       </QuestionsSesctionButtonsBlock>
       <AllQuestionsBlock>
-        {questions.map((question, index) => {
-          return <Question key={index} data={question} />;
-        })}
+        {questions.length <= 0 ? (
+          <h1>There is no data for the selected action</h1>
+        ) : (
+          questions.map((question, index) => {
+            return <Question key={index} data={question} />;
+          })
+        )}
+        {}
       </AllQuestionsBlock>
     </QuestionsSesction>
   );
@@ -64,6 +69,15 @@ const QuestionsSesctionButtonsBlock = styled.div`
 const AllQuestionsBlock = styled.div`
   display: flex;
   flex-direction: column;
+
+  h1 {
+    padding-top: 2.5rem;
+    text-align: center;
+  }
+
+  @media ${theme.device.laptop} {
+    min-width: 48.375rem;
+  }
 `;
 
 const ButtonsStyled = styled.button`
@@ -72,5 +86,5 @@ const ButtonsStyled = styled.button`
   border: none;
   padding: 0.3125rem;
   min-width: 5rem;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 `;

@@ -42,7 +42,7 @@ export const Question = ({ data, index }) => {
             </LargeTextRegular>
           </QuestionIntroduction>
         </QuestionTextInfoBlock>
-        <InquiredUserAvatar>{data.authorID}</InquiredUserAvatar>
+        <InquiredUserAvatar>{data.author}</InquiredUserAvatar>
       </QuestionTop>
       <QuestionTopBottom>
         <Viewed>
@@ -59,7 +59,7 @@ export const Question = ({ data, index }) => {
 };
 
 const QuestionBlock = styled.div`
-  padding: 5px 15px;
+  padding: 0.3125rem 0.9375rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   @media ${theme.device.laptop} {
@@ -87,7 +87,7 @@ const QuestionTitleAndDateBlock = styled.div`
   @media ${theme.device.tablet} {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
     h3 {
       font-size: 1.5rem;
       line-height: 1.75rem;

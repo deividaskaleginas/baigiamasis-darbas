@@ -25,8 +25,8 @@ const BurgerStyled = styled.div`
   width: 2rem;
   height: 2rem;
   position: fixed;
-  top: 15px;
-  right: 20px;
+  top: 0.9375rem;
+  right: 1.25rem;
 
   @media ${theme.device.laptop} {
     display: none;
@@ -35,7 +35,7 @@ const BurgerStyled = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background-color: ${({ open }) => (open ? "#fff" : "#333")};
     transform-origin: 1px;
     transition: all 0.3s linear;

@@ -80,10 +80,10 @@ export const Comments = ({ questionID }) => {
           const { username } = users.find((user) => user.id === userID);
           return (
             <UserCommentBlock key={id}>
-              <div>
+              <PostingData>
                 <span>Posted: {date}</span>
                 {edited && <SmallTextRegulat>Edited {edited}</SmallTextRegulat>}
-              </div>
+              </PostingData>
               {isLoggedIn && loggedUserData.id === userID ? (
                 <AuthorOptionsBlock>
                   <button onClick={() => deleteComment(id)}>Delete</button>
@@ -94,6 +94,7 @@ export const Comments = ({ questionID }) => {
                 <span>User: {username}</span>
               </CommentUserData>
               <UserComment>
+                <h5>Comment:</h5>
                 <p>{comment}</p>
               </UserComment>
             </UserCommentBlock>
@@ -141,6 +142,9 @@ const CommentUserData = styled.div`
 `;
 
 const UserComment = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding: 0 1.25rem;
 `;
 
@@ -187,12 +191,23 @@ const CommentsBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  padding-top: 1.25rem;
 `;
 
 const UserCommentBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0.625rem 0.3125rem 1.25rem 0.3125rem;
+  gap: 1rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.3125rem;
+`;
+
+const PostingData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
 `;
 
 const AuthorOptionsBlock = styled.div`

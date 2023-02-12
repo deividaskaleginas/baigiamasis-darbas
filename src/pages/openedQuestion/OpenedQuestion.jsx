@@ -12,6 +12,12 @@ import ForumUserContext from "../../context/forumUserContext";
 import { patchDataToServer } from "../../context/helpers";
 import { theme } from "../../styles/theme";
 import { Comments } from "../../components/comments/Comments";
+import {
+  arrowDownGrey,
+  arrowDownRed,
+  arrowUpGreen,
+  arrowUpGrey,
+} from "../../assets/svg";
 
 export const OpenedQuestion = () => {
   const { questions, setQuestion, comments, setComments } = useContext(
@@ -101,7 +107,7 @@ export const OpenedQuestion = () => {
     );
 
     const deletedQuestionComments = comments.filter(
-      (comments) => comments.questionID == id
+      (comments) => comments.questionID === id
     );
 
     deletedQuestionComments.forEach((comment) => {
@@ -120,7 +126,7 @@ export const OpenedQuestion = () => {
           <QuestionDataBlock>
             <MediumTextBold>{openedQuestion?.title}</MediumTextBold>
 
-            <div>{openedQuestion?.authorID}</div>
+            <div>{openedQuestion?.author}</div>
             <QuestionDetails>
               <SmallTextRegulat>
                 Asked {new Date(openedQuestion?.date).toLocaleString()}
@@ -137,70 +143,17 @@ export const OpenedQuestion = () => {
           </QuestionDataBlock>
         </QuestionTopBlock>
         <MoreAboutQuestion>
-          {isLoggedIn && (
+          {isLoggedIn ? (
             <ButtonsBlock>
               <Button onClick={() => setIsLiked(!isLiked)}>
-                {isLiked ? (
-                  <svg
-                    width="24"
-                    height="22"
-                    viewBox="0 0 24 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13.0607 0.939341C12.4749 0.353554 11.5251 0.353554 10.9393 0.939341L1.3934 10.4853C0.807611 11.0711 0.807611 12.0208 1.3934 12.6066C1.97919 13.1924 2.92893 13.1924 3.51472 12.6066L12 4.12132L20.4853 12.6066C21.0711 13.1924 22.0208 13.1924 22.6066 12.6066C23.1924 12.0208 23.1924 11.0711 22.6066 10.4853L13.0607 0.939341ZM13.5 22V2H10.5V22H13.5Z"
-                      fill="#36CB69"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    width="24"
-                    height="22"
-                    viewBox="0 0 24 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13.0607 0.939341C12.4749 0.353554 11.5251 0.353554 10.9393 0.939341L1.3934 10.4853C0.807611 11.0711 0.807611 12.0208 1.3934 12.6066C1.97919 13.1924 2.92893 13.1924 3.51472 12.6066L12 4.12132L20.4853 12.6066C21.0711 13.1924 22.0208 13.1924 22.6066 12.6066C23.1924 12.0208 23.1924 11.0711 22.6066 10.4853L13.0607 0.939341ZM13.5 22V2H10.5V22H13.5Z"
-                      fill="#808080"
-                    />
-                  </svg>
-                )}
+                {isLiked ? arrowUpGreen : arrowUpGrey}
               </Button>
-              <Button
-                background={isDisliked ? "red" : "blue"}
-                onClick={() => setIsDisliked(!isDisliked)}
-              >
-                {isDisliked ? (
-                  <svg
-                    width="24"
-                    height="22"
-                    viewBox="0 0 24 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.9393 21.0607C11.5251 21.6464 12.4749 21.6464 13.0607 21.0607L22.6066 11.5147C23.1924 10.9289 23.1924 9.97919 22.6066 9.3934C22.0208 8.80761 21.0711 8.80761 20.4853 9.3934L12 17.8787L3.51472 9.3934C2.92893 8.80761 1.97919 8.80761 1.3934 9.3934C0.807611 9.97919 0.807611 10.9289 1.3934 11.5147L10.9393 21.0607ZM10.5 0L10.5 20H13.5L13.5 0L10.5 0Z"
-                      fill="#ED6571"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    width="24"
-                    height="22"
-                    viewBox="0 0 24 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.9393 21.0607C11.5251 21.6464 12.4749 21.6464 13.0607 21.0607L22.6066 11.5147C23.1924 10.9289 23.1924 9.97919 22.6066 9.3934C22.0208 8.80761 21.0711 8.80761 20.4853 9.3934L12 17.8787L3.51472 9.3934C2.92893 8.80761 1.97919 8.80761 1.3934 9.3934C0.807611 9.97919 0.807611 10.9289 1.3934 11.5147L10.9393 21.0607ZM10.5 0L10.5 20H13.5L13.5 0L10.5 0Z"
-                      fill="#888888"
-                    />
-                  </svg>
-                )}
+              <Button onClick={() => setIsDisliked(!isDisliked)}>
+                {isDisliked ? arrowDownRed : arrowDownGrey}
               </Button>
             </ButtonsBlock>
+          ) : (
+            <div></div>
           )}
 
           <QuestionInfo>
@@ -239,7 +192,7 @@ const OpenedQuestionSection = styled.section`
 
 const QuestionTopBlock = styled.div`
   display: flex;
-  padding: 20px 0;
+  padding: 1.25rem 0;
 `;
 
 const QuestionDataBlock = styled.div`
@@ -250,7 +203,7 @@ const QuestionDataBlock = styled.div`
   @media ${theme.device.tablet} {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
     h3 {
       font-size: 1.5rem;
       line-height: 1.75rem;
@@ -271,10 +224,9 @@ const QuestionDetails = styled.div`
 `;
 
 const Button = styled.button`
-  //background-color: ${(props) => props.background || "blue"};
   background: none;
   border: none;
-  padding: 5px;
+  padding: 0.3125rem;
 `;
 
 const ButtonsBlock = styled.div`
@@ -287,8 +239,8 @@ const MoreAboutQuestion = styled.div`
   align-items: center;
   grid-template-columns: 1fr 6fr;
   padding-bottom: 1.875rem;
-
-  border-bottom: 1.5px solid #e0e0e0;
+  margin-bottom: 2rem;
+  border-bottom: 0.0938rem solid #e0e0e0;
 `;
 
 const QuestionInfo = styled.div`

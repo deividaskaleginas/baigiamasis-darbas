@@ -21,7 +21,7 @@ const ForumUserProvider = ({ children }) => {
         setUsers(data);
         setStatuses({ ...statuses, getUserStatus: "succsess" });
       })
-      .catch((error) => {
+      .catch(() => {
         setStatuses({ ...statuses, getUserStatus: "error" });
       });
   }, []);

@@ -9,56 +9,7 @@
       "confirmPassword": "Testas1@",
       "votes": [
         {
-          "id": "le1ltxtq",
-          "vote": {
-            "isLiked": true,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le1moxjo",
-          "vote": {
-            "isLiked": true,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le1m1fcv",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le1m181j",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le1ronqu",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le1t9aq8",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le1mnty8",
-          "vote": {
-            "isLiked": false,
-            "isDisliked": false
-          }
-        },
-        {
-          "id": "le1tnhmi",
+          "id": "le1v0075",
           "vote": {
             "isLiked": false,
             "isDisliked": false
@@ -85,71 +36,36 @@
       "username": "NaujasVartotojas",
       "password": "NaujasVartotojas1@",
       "confirmPassword": "NaujasVartotojas1@",
-      "votes": []
+      "votes": [
+        {
+          "id": "le1v0075",
+          "vote": {
+            "isLiked": false,
+            "isDisliked": false
+          }
+        }
+      ]
     }
   ],
   "questions": [
     {
-      "id": "le1mnty8",
-      "date": 1676220928351,
-      "title": "Vartotojo",
-      "question": "Vartotojo",
-      "authorID": "ldtyiicr",
-      "viewed": 4,
-      "edited": ""
-    },
-    {
-      "id": "le1moxjo",
-      "date": 1676220979668,
-      "title": "Varototojo naujas",
-      "question": "Naujausias varotojo klausimas?",
-      "authorID": "ldtyiicr",
-      "viewed": 2,
-      "edited": ""
-    },
-    {
-      "id": "le1ronqu",
-      "date": 1676229365045,
+      "id": "le1v0075",
+      "date": 1676234933249,
       "title": "Nauja tema",
-      "question": "Klausimo laukas / editintas",
-      "authorID": "ldk7lufc",
-      "viewed": 2,
-      "edited": "12/02/2023, 22:19:42"
-    },
-    {
-      "id": "le1t9aq8",
-      "date": 1676232007567,
-      "title": "adadasd",
-      "question": "asdadad/pakeistas",
-      "authorID": "ldk7lufc",
-      "viewed": 1,
-      "edited": "12/02/2023, 22:00:35"
-    },
-    {
-      "id": "le1tnhmi",
-      "date": 1676232669690,
-      "title": "Klausimo antraste",
-      "question": "Daugiau informacijos apie klausima",
-      "authorID": "ldk7lufc",
-      "viewed": 1,
+      "question": "Naujas klausimas ir tema",
+      "authorID": "le1ut4ho",
+      "author": "NaujasVartotojas",
+      "viewed": 5,
       "edited": ""
     }
   ],
   "comments": [
     {
-      "questionID": "le1moxjo",
-      "id": "le1mv6o8",
-      "date": "12/02/2023, 19:01:11",
-      "userID": "ldtyiicr",
-      "comment": "Pakomentuotas"
-    },
-    {
-      "questionID": "le1t9aq8",
-      "id": "le1tfr2w",
-      "date": "12/02/2023, 22:05:08",
+      "questionID": "le1v0075",
+      "id": "le1vsdh7",
+      "date": "12/02/2023, 23:10:56",
       "userID": "ldk7lufc",
-      "comment": "Veikia? / pakeistas",
-      "edited": "12/02/2023, 22:09:10"
+      "comment": "Komentaras"
     }
   ]
 }
