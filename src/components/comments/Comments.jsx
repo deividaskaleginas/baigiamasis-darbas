@@ -98,6 +98,7 @@ export const Comments = ({ questionID }) => {
                 value={values.comment}
                 maxLength="500"
                 onChange={onChange}
+                required
               ></Textarea>
 
               <div className="button-div">
