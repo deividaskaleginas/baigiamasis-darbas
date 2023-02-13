@@ -55,7 +55,7 @@
       "question": "Naujas klausimas ir tema",
       "authorID": "le1ut4ho",
       "author": "NaujasVartotojas",
-      "viewed": 5,
+      "viewed": 13,
       "edited": ""
     }
   ],
@@ -66,6 +66,20 @@
       "date": "12/02/2023, 23:10:56",
       "userID": "ldk7lufc",
       "comment": "Komentaras"
+    },
+    {
+      "questionID": "le1v0075",
+      "id": "le2ak3if",
+      "date": "13/02/2023, 06:04:24",
+      "userID": "ldk7lufc",
+      "comment": "Komentaras naujas "
+    },
+    {
+      "questionID": "le1v0075",
+      "id": "le2arun1",
+      "date": "13/02/2023, 06:10:26",
+      "userID": "ldk7lufc",
+      "comment": "Naujas"
     }
   ]
 }

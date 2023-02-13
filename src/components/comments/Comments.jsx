@@ -17,19 +17,6 @@ export const Comments = ({ questionID }) => {
     comment: "",
   });
 
-  const inputs = [
-    {
-      id: 1,
-      name: "comment",
-      type: "textarea",
-      placeholder: "Comment",
-      errorMessage: "Comment should be 3-240 characters",
-      pattern: "^.{3,16}$",
-      label: "Comment",
-      required: true,
-    },
-  ];
-
   const allComments = comments.filter(
     (comments) => comments.questionID === questionID
   );
@@ -106,14 +93,13 @@ export const Comments = ({ questionID }) => {
           <RegistrationFormContainer>
             <form onSubmit={handleSubmit}>
               <h1>Comment</h1>
-              {inputs.map((input) => (
-                <FormInput
-                  key={input.id}
-                  {...input}
-                  value={values[input.name]}
-                  onChange={onChange}
-                />
-              ))}
+              <Textarea
+                name="comment"
+                value={values.comment}
+                maxLength="500"
+                onChange={onChange}
+              ></Textarea>
+
               <div className="button-div">
                 <button>Submit</button>
               </div>
@@ -231,4 +217,14 @@ const AuthorOptionsBlock = styled.div`
     border-radius: 0.625rem;
     min-width: 3.125rem;
   }
+`;
+
+const Textarea = styled.textarea`
+  min-height: 9rem;
+  max-width: 100%;
+  border: 0.0938rem solid gray;
+  border-radius: 0.625rem;
+  color: black;
+  font-size: 0.6875rem;
+  padding: 1.1875rem;
 `;
